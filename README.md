@@ -1,3 +1,60 @@
+#0526 
+> 날짜 및 시간 값 선택 시 텍스트에 값 삽입하기
+```js
+value={this.state.startDate}
+onChange={(value)=> {
+        this.setState({startDate:value})
+    }
+}
+```
+> Save icon 추가
+```js
+import SaveIcon from '@material-ui/icons/Save';
+```
+> 입력 값 유효성 검사
+```js
+checkValidate(){
+    const {
+      title, content, startDate, startTime, endDate, endTime
+    } = this.state;
+    if(!title || !content || !startDate || !startTime || !endDate || !endTime){
+      return false
+    }
+    return true
+  }
+
+```
+> 제목, 내용 공백 제거
+```js
+todoList.push({title: title.trim(), content: content.trim(), startDate, startTime, endDate, endTime});
+```
+#0512
+> material.ui 연결
+```js
+import { Button, TextField, Typography } from '@material-ui/core';
+```
+> datetime picker 설정
+```js
+import { KeyboardDatePicker, KeyboardTimePicker } from '@material-ui/pickers';
+```
+> index.js 수정
+```js
+- index.js의 import "moment/locale/ko"을 통해 언어 변경
+
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
+import "moment/locale/ko";
+
+ReactDOM.render(
+  <MuiPickersUtilsProvider utils={MomentUtils}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </MuiPickersUtilsProvider>,
+  
+  document.getElementById('root')
+);
+```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

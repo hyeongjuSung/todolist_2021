@@ -1,8 +1,8 @@
 html{
   width: 100%;
-  height: 100%;
+  height:100%;
 }
-
+ 
 .App {
   position: absolute;
   height: 100%;
@@ -12,20 +12,20 @@ html{
   justify-content: center;
   flex-direction: column;
 }
-
+ 
 .header {
   padding: 10px;
-  font-size: calc(20px + 2vmin)
+  font-size: calc(20px + 2vmin);
 }
-
-.input-area {
+ 
+.input_area{
   background-color: burlywood;
   width: 45%;
   min-width: 300px;
 }
-
-.list-area {
-  background-color: firebrick;
+ 
+.list_area{
+  background-color: beige;
   width: 45%;
   min-width: 300px;
   min-height: 300px;
