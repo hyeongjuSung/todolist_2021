@@ -1,4 +1,4 @@
-#0526 
+# 0526 
 > 날짜 및 시간 값 선택 시 텍스트에 값 삽입하기
 ```js
 value={this.state.startDate}
@@ -22,13 +22,12 @@ checkValidate(){
     }
     return true
   }
-
 ```
 > 제목, 내용 공백 제거
 ```js
 todoList.push({title: title.trim(), content: content.trim(), startDate, startTime, endDate, endTime});
 ```
-#0512
+# 0512
 > material.ui 연결
 ```js
 import { Button, TextField, Typography } from '@material-ui/core';
@@ -55,7 +54,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -124,4 +123,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
