@@ -1,3 +1,42 @@
+# 0602
+> Components and Props
+- 참고: https://ko.reactjs.org/docs/components-and-props.html
+> 함수 컴포넌트
+```js
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
+> 클래스 컴포넌트
+```js
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+> Hook
+- 참고: https://ko.reactjs.org/docs/hooks-intro.html
+```js
+-  Hook을 이용하여 기존 Class 바탕의 코드를 작성할 필요 없이 상태 값과 여러 React의 기능을 사용 가능
+
+import React, { useState } from 'react';
+
+function Example() {
+  // "count"라는 새로운 상태 값을 정의합니다.
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
 # 0526 
 > 날짜 및 시간 값 선택 시 텍스트에 값 삽입하기
 ```js
