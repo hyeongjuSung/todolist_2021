@@ -1,3 +1,85 @@
+# 0608
+> ListArea 수정
+```js
+function ListArea(props) {
+    return <div className="list_area">
+    <List>
+        {props.list.map((todoItem, idx) => {
+        const {
+            title, content, startDate, startTime, endDate, endTime
+        } = todoItem;
+        return (
+            <ListItem key={idx} role={undefined} dense button>
+            <ListItemText
+                primary={title}
+                secondary={startDate.format('yyyy-MM-DD')+' '+startTime.format('HH:MM')+' ~ '+endDate.format('yyyy-MM-DD')+' '+endTime.format('HH:MM')}
+            />
+            </ListItem>
+        )
+        })}
+    </List>
+    </div>
+}
+...
+<ListArea list={todoList}/>
+```
+> DatePicker 수정
+```js
+const DateTimePicker = (props) => {
+    return <>
+    <KeyboardDatePicker
+            disableToolbar
+            variant="inline"
+            format="yyyy/MM/DD"
+            margin="normal"
+            label={props.dateLabel}
+            value={props.date}
+            onChange={(value)=> props.changeDate(value)}
+            style = {{width: '50%'}}     
+            KeyboardButtonProps={{
+            'aria-label': 'change date',
+            }}
+        />
+        <KeyboardTimePicker
+            margin="normal"
+            label={props.timeLabel}
+            variant="inline"
+            value={props.time}
+            onChange={(value)=> props.changeTime(value)}
+            style = {{width: '50%'}}   
+            KeyboardButtonProps={{
+            'aria-label': 'change time',
+            }}
+        />
+
+    </>
+}
+...
+<DateTimePicker
+      dateLabel="시작 예정일"
+      date={startDate}
+      timeLabel="시작시간"
+      time={startTime}
+      changeDate={setStartDate}
+      changeTime={setStartTime}
+/>
+<DateTimePicker
+      dateLabel="종료 예정일"
+      date={endDate}
+      timeLabel="종료시간"
+      time={endTime}
+      changeDate={setEndDate}
+      changeTime={setEndTime}
+/>
+
+```
+> newApp.js의 가독성을 위한 코드 분리
+```
+1. components 폴더 생성
+2. InputArea => InputArea.js에 코드 분리
+3. DateTimePicker => DateTimePicker.js에서 코드 분리
+4. ListArea => ListArea.js에 코드 분리
+```
 # 0602
 > Components and Props
 - 참고: https://ko.reactjs.org/docs/components-and-props.html
