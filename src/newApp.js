@@ -7,7 +7,7 @@ import './App.css';
 function ListArea(props) {
     return <div className="list_area">
     <List>
-        {props.list.map((todoItem, idx) => {
+        {props.todoList.map((todoItem, idx) => {
         const {
             title, content, startDate, startTime, endDate, endTime
         } = todoItem;
@@ -54,8 +54,7 @@ const DateTimePicker = (props) => {
     </>
 }
 
-function NewApp(props) {
-    const [todoList, setTodoList] = useState([]);
+const InputArea = (props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [startDate, setStartDate] = useState(null);
@@ -63,6 +62,7 @@ function NewApp(props) {
     const [endDate, setEndDate] = useState(null);
     const [endTime, setEndTime] = useState(null);
     const [isError, setIsError] = useState(false);
+    const {todoList, setTodoList} = props;
 
     const checkValidate = () => {
         const sd = new Date(startDate);
@@ -108,9 +108,8 @@ function NewApp(props) {
         }
     }
 
-    return <div className="App">
-        <div className="header">TODO LIST</div>
-        <div className="input_area">
+    return <>
+    <div className="input_area">
         <TextField 
             label="제목" size="normal" margin="normal" fullWidth required 
             value={title}
@@ -146,7 +145,15 @@ function NewApp(props) {
             Save
         </Button>
         </div>
-        <ListArea list={todoList}/>
+    </>
+}
+
+function NewApp(props) {
+    const [todoList, setTodoList] = useState([]); 
+    return <div className="App">
+        <div className="header">TODO LIST</div>
+        <InputArea todoList={todoList} setTodoList={setTodoList} />
+        <ListArea todoList={todoList}/>
         <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © 성형주 '+new Date().getFullYear()+'.'}         
         </Typography>
